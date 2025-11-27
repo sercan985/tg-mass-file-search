@@ -1,4 +1,31 @@
 <style>
+        /* Clear button styles */
+        .clear-keywords-btn {
+            position: static;
+            right: auto;
+            top: auto;
+            transform: none;
+            margin-bottom: 10px;
+            margin-top: 28px;
+            background: none;
+            border: none;
+            color: #00b2ff;
+            font-size: 1.3em;
+            cursor: pointer;
+            padding: 0 6px;
+            z-index: 2;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+            /* Hover effect removed */
+        .keywords-input-group {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 180px;
+            margin-bottom: 0;
+        }
     .search-wrapper {
         width: 100%;
         display: flex;
@@ -58,7 +85,7 @@
         align-items: flex-end;
         background: #23262f;
         border-radius: 14px;
-        box-shadow: 0 2px 16px rgba(0,178,255,0.10);
+        /* box-shadow removed for flat look */
         padding: 18px 24px;
         margin-bottom: 24px;
         border: 1px solid #2c2f3a;
@@ -107,7 +134,7 @@
         background-color: #23262f;
     }
     .modern-searchbar input[type="submit"] {
-        background: linear-gradient(90deg, #00b2ff 0%, #005f8e 100%);
+        background: #0074d9;
         color: #fff;
         padding: 0 32px;
         border: none;
@@ -142,9 +169,12 @@
             <label for="query">File search (eg 'matematik')</label>
             <input type="text" id="query" name="q" required value="{% if error %}{{ query|default('') }}{% else %}{% endif %}" placeholder="Type file name or keyword...">
         </div>
-        <div class="input-group">
-            <label for="keywords">Channel keywords (comma separated)</label>
-            <input type="text" id="keywords" name="keywords" required placeholder="kitap pdf, tyt pdf, ayt pdf" value="{% if error %}{{ keywords|default('') }}{% else %}{% endif %}">
+        <div class="keywords-input-group" style="display: flex; flex-direction: row; align-items: flex-end;">
+            <div style="flex: 1; display: flex; flex-direction: column;">
+                <label for="keywords">Channel keywords (comma separated)</label>
+                <input type="text" id="keywords" name="keywords" required placeholder="kitap pdf, tyt pdf, ayt pdf" value="{{ keywords|default('') }}">
+            </div>
+            <button type="button" class="clear-keywords-btn" title="Clear keywords" onclick="document.getElementById('keywords').value=''; document.getElementById('keywords').focus();" style="margin-left: 8px; position: static; top: auto; right: auto; transform: none;">&#10006;</button>
         </div>
         <input type="submit" value="🔍 Search">
     </form>

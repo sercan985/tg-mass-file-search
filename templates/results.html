@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>search Results for "{{ query }}"</title>
 </head>
-<body style="background: linear-gradient(120deg, #181a20 0%, #23262f 100%); min-height: 100vh; margin: 0; font-family: 'Inter', 'Segoe UI', Arial, sans-serif; color: #eaf6fb; letter-spacing: 0.01em; overflow-x: hidden;">
-    <div class="container" style="max-width: 850px; margin: 48px auto; background: linear-gradient(135deg, #23262f 60%, #181a20 100%); padding: 40px 32px 32px 32px; border-radius: 22px; box-shadow: 0 0 40px rgba(0,178,255,0.22); border: 1px solid #22242c; display: flex; flex-direction: column; align-items: stretch; width: calc(100% - 64px); box-sizing: border-box; position: relative;">
+<body style="background: #181a20; min-height: 100vh; margin: 0; font-family: 'Inter', 'Segoe UI', Arial, sans-serif; color: #eaf6fb; letter-spacing: 0.01em; overflow-x: hidden;">
+    <div class="container" style="max-width: 850px; margin: 48px auto; background: #23262f; padding: 40px 32px 32px 32px; border-radius: 22px; border: 1px solid #22242c; display: flex; flex-direction: column; align-items: stretch; width: calc(100% - 64px); box-sizing: border-box; position: relative;">
         
         <!-- GitHub Logo -->
         <a href="https://github.com/sercan985/tg-mass-file-search" target="_blank" class="github-logo" style="position: absolute; top: 20px; right: 20px; width: 32px; height: 32px; opacity: 0.7; transition: opacity 0.3s, transform 0.3s; z-index: 10;">
@@ -46,7 +46,7 @@
             </div>
             <div id="resultsContainer" style="display: flex; flex-direction: column; gap: 26px; width: 100%; overflow: hidden;">
             {% for file in results %}
-                <div class="result-item" data-date="{{ file.date }}" style="border: 1.5px solid #2c2f3a; padding: 24px 32px; border-radius: 18px; background: linear-gradient(120deg, #23262f 80%, #181a20 100%); box-shadow: 0 4px 24px rgba(0,178,255,0.13); transition: box-shadow 0.2s; width: 100%; box-sizing: border-box; overflow: hidden; min-width: 0;">
+                <div class="result-item" data-date="{{ file.date }}" style="border: 1.5px solid #2c2f3a; padding: 24px 32px; border-radius: 18px; background: #23262f; width: 100%; box-sizing: border-box; overflow: hidden; min-width: 0;">
                     <h3 style="margin-top: 0; color: #00b2ff; font-size: 1.1em; font-weight: 700; margin-bottom: 12px; text-shadow: 0 1px 8px #005f8e22; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto; line-height: 1.4; width: 100%; box-sizing: border-box; white-space: normal; min-width: 0;">{{ file.filename }}</h3>
                     <div style="display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 8px; width: 100%; box-sizing: border-box; overflow: hidden;">
                         <span style="font-size: 1.07em; color: #b2b8c6; word-wrap: break-word; overflow-wrap: break-word; min-width: 0; flex-shrink: 1;"><strong style="color: #7ed6fa;">channel:</strong> {{ file.channel_name }}</span>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="action-links" style="margin-top: 20px; display: flex; gap: 14px; flex-wrap: wrap;">
                         {% if file.telegram_message_link %}
-                            <a href="{{ file.telegram_message_link }}" class="telegram-link" target="_blank" style="background: linear-gradient(90deg, #00b2ff 0%, #005f8e 100%); color: #fff; padding: 13px 26px; text-decoration: none; border-radius: 12px; font-size: 1.08em; font-weight: 700; box-shadow: 0 2px 12px rgba(0,178,255,0.14); transition: background 0.2s, box-shadow 0.2s; word-wrap: break-word; overflow-wrap: break-word; min-width: 0; flex-shrink: 0;">go to message</a>
+                            <a href="{{ file.telegram_message_link }}" class="telegram-link" target="_blank" style="background: #1976d2; color: #b2b8c6; padding: 13px 26px; text-decoration: none; border-radius: 12px; font-size: 1.08em; font-weight: 700; transition: background 0.2s; word-wrap: break-word; overflow-wrap: break-word; min-width: 0; flex-shrink: 0;">go to message</a>
                         {% endif %}
                     </div>
                 </div>
@@ -224,6 +224,8 @@
         .telegram-link {
             min-width: 0 !important;
             flex-shrink: 0 !important;
+            background: #1976d2 !important;
+            color: #eaf6fb !important;
         }
     </style>
     
